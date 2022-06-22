@@ -2,7 +2,7 @@
 
 <img src="../figuras/aud_pasiva.png" width="500">
 
-> Durante mucho años se pensó que el sistema auditivo era pasivo.
+> Durante muchos años se pensó que el sistema auditivo era pasivo.
 
 > Sin embargo, cuando existen factores cognitivos activos se posibilita el control sobre objetos auditivos.
 
