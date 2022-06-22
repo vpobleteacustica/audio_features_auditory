@@ -1,0 +1,12 @@
+
+format: jb-book
+root: README
+parts:
+  - caption: Revisión de features perceptuales y físicos para audio
+    numbered: true
+    chapters:
+    - file: contenidos/unidad1/clase01
+    - file: contenidos/unidad1/clase11
+    - file: contenidos/unidad1/clase02
+    - file: contenidos/unidad1/clase22
+    - file: contenidos/unidad1/clase03
