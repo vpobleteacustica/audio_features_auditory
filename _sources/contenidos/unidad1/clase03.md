@@ -13,3 +13,11 @@
 > Features podrían presentarse como: `ritmo`, `timbre`, `pitch` o altura tonal (bajo, medio alto), `localización` (arriba, abajo, izquierda, derecha), `duración`, `onset y offset`.
 
 > Estos features permiten que separemos en transmisiones individuales sonidos como por ejemplo, una melodía, una voz, una guitarra.
+
+> La percepción auditiva es un canal de transmisión con capacidad limitada para contener información. Puede codificar datos y transmitirlos pero en cantidades finitas de información por período de tiempo. 
+
+<img src="../figuras/auditory_system.png" width="350">
+
+> La Cóclea o caracol:
+
+<img src="../figuras/Elliot_Sistema.png" width="1000">
