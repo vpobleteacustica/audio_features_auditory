@@ -21,3 +21,17 @@
 > La Cóclea o caracol:
 
 <img src="../figuras/Elliot_Sistema.png" width="1000">
+
+> Debido a la `Transformada de Fourier`, los sonidos (señales) variables en el tiempo se descomponen en una suma de senoidales cada una de frecuencias distintas.
+
+> Este Transformación (tiempo - frecuencia) es muy relevante para entender la audición y la percepicón auditiva.
+
+> El sistema auditivo periférico interno (cóclea) realiza una `especie de transformada de Fourier` mecánica. Esta consiste en un mapeo de frecuencias a lo largo de la cóclea.
+
+> Otra perspectiva de importancia en el sistema auditivo interno es la `Transformada Hilbert` que considera al sonido como el resultado de una multiplicación entre dos envolventes: la primera es una `envolvente` del sonido que varía muy lentamente en frecuencia y la segunda, es una `estructura fina` que varía muy rápidamente.
+
+<img src="../figuras/fine.png" width="600">
+
+<img src="../figuras/fine2.png" width="600">
+
+<img src="../figuras/envelope.png" width="700">

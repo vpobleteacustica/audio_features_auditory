@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>6. Sistema auditivo periférico &#8212; Audio feature extraction</title>
+    <title>9. La transformada de Fourier en tiempo corto &#8212; Audio feature extraction</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,9 +52,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="prev" title="5. ¿Sistema auditivo humano: pasivo o activo?" href="clase03.html" />
+    <link rel="next" title="10. Espectrogramas de un tono puro" href="clase022_pure_tone_1.html" />
+    <link rel="prev" title="8. Entender la resolución de frecuencia en el sistema auditivo" href="clase04.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -145,9 +148,29 @@ const thebe_selector_output = ".output, .cell_output"
    5. ¿Sistema auditivo humano: pasivo o activo?
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="clase011.html">
+   6. Sistema auditivo periférico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="clase04.html">
+   8. Entender la resolución de frecuencia en el sistema auditivo
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   6. Sistema auditivo periférico
+   9. La transformada de Fourier en tiempo corto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="clase022_pure_tone_1.html">
+   10. Espectrogramas de un tono puro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="clase022_audio_real.html">
+   11. Espectrogramas de audio real
   </a>
  </li>
 </ul>
@@ -201,35 +224,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/contenidos/unidad1/clase0011.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -252,7 +246,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/contenidos/unidad1/clase0011.ipynb"
+        <a href="../../_sources/contenidos/unidad1/clase05.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -263,7 +257,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="headerbtn__text-container">.md</span>
 </a>
 
       </li>
@@ -289,94 +283,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   6. Sistema auditivo periférico
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#en-acustica-existe-resonancia">
-   7. En acústica existe
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Resonancia
-    </span>
-   </code>
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#una-descripcion-del-concepto-a-traves-del">
-     7.1. Una descripción del concepto a través del:
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Sistema auditivo periférico</h1>
+                <h1>La transformada de Fourier en tiempo corto</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   6. Sistema auditivo periférico
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#en-acustica-existe-resonancia">
-   7. En acústica existe
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Resonancia
-    </span>
-   </code>
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#una-descripcion-del-concepto-a-traves-del">
-     7.1. Una descripción del concepto a través del:
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -384,62 +307,29 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Audio</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="sistema-auditivo-periferico">
-<h1><span class="section-number">6. </span>Sistema auditivo periférico<a class="headerlink" href="#sistema-auditivo-periferico" title="Enlazar permanentemente con este título">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;eQEaiZ2j9oc&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="400"
-    height="300"
-    src="https://www.youtube.com/embed/eQEaiZ2j9oc"
-    frameborder="0"
-    allowfullscreen
-
-></iframe>
-</div></div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="en-acustica-existe-resonancia">
-<h1><span class="section-number">7. </span>En acústica existe <code class="docutils literal notranslate"><span class="pre">Resonancia</span></code><a class="headerlink" href="#en-acustica-existe-resonancia" title="Enlazar permanentemente con este título">#</a></h1>
-<section id="una-descripcion-del-concepto-a-traves-del">
-<h2><span class="section-number">7.1. </span>Una descripción del concepto a través del:<a class="headerlink" href="#una-descripcion-del-concepto-a-traves-del" title="Enlazar permanentemente con este título">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="la-transformada-de-fourier-en-tiempo-corto">
+<h1><span class="section-number">9. </span>La transformada de Fourier en tiempo corto<a class="headerlink" href="#la-transformada-de-fourier-en-tiempo-corto" title="Enlazar permanentemente con este título">#</a></h1>
 <blockquote>
-<div><p>Tubo de Rubens.</p>
+<div><p>Para construir un espectrograma se usa la <code class="docutils literal notranslate"><span class="pre">transformada</span> <span class="pre">de</span> <span class="pre">Fourier</span> <span class="pre">en</span> <span class="pre">tiempo</span> <span class="pre">corto</span></code> (STFT).</p>
 </div></blockquote>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;dihQuwrf9yQ&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="400"
-    height="300"
-    src="https://www.youtube.com/embed/dihQuwrf9yQ"
-    frameborder="0"
-    allowfullscreen
-
-></iframe>
-</div></div>
-</div>
-</section>
+<blockquote>
+<div><p>STFT consiste en calcular la fransformada de Fourier en frames sucesivos de la señal.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Por lo general, los frames se van tomando de manera <code class="docutils literal notranslate"><span class="pre">traslapada</span></code> y se les aplican funciones de <code class="docutils literal notranslate"><span class="pre">ventana</span></code>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[ X(k,\omega) = \sum_{n} x[n]\cdot w[n-k]\cdot e^{-j\,\omega\, n}\]</div>
+<blockquote>
+<div><p>donde <span class="math notranslate nohighlight">\(k\)</span> y <span class="math notranslate nohighlight">\(\omega\)</span> representan los índices de tiempo (frame) y de frecuencia, respectivamente.</p>
+</div></blockquote>
+<a class="reference internal image-reference" href="../../_images/stft.png"><img alt="../../_images/stft.png" src="../../_images/stft.png" style="width: 500px;" /></a>
+<blockquote>
+<div><p>Arquitectura genérica de extracción de características para análisis de audios:</p>
+</div></blockquote>
+<a class="reference internal image-reference" href="../../_images/applied0.png"><img alt="../../_images/applied0.png" src="../../_images/applied0.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../_images/applied1.png"><img alt="../../_images/applied1.png" src="../../_images/applied1.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../_images/taxonomy.png"><img alt="../../_images/taxonomy.png" src="../../_images/taxonomy.png" style="width: 500px;" /></a>
 </section>
 
     <script type="text/x-thebe-config">
@@ -451,16 +341,16 @@ title="Print to PDF"
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "features_2"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "features_2",
+            kernelName: "python3",
             path: "./contenidos/unidad1"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'features_2'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
@@ -469,12 +359,19 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="clase03.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="clase04.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">5. </span>¿Sistema auditivo humano: pasivo o activo?</p>
+            <p class="prev-next-title"><span class="section-number">8. </span>Entender la resolución de frecuencia en el sistema auditivo</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="clase022_pure_tone_1.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Espectrogramas de un tono puro</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

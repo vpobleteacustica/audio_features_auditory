@@ -16,7 +16,7 @@ from IPython.display import YouTubeVideo
 YouTubeVideo("eQEaiZ2j9oc")
 
 
-# # En acústica existe `Resonancia`
+# #  `Resonancia` acústica
 
 # ## Una descripción del concepto a través del:
 # 
@@ -27,10 +27,4 @@ YouTubeVideo("eQEaiZ2j9oc")
 
 from IPython.display import YouTubeVideo
 YouTubeVideo("dihQuwrf9yQ")
-
-
-# In[ ]:
-
-
-
 

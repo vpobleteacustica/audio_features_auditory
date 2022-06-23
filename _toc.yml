@@ -10,4 +10,8 @@ parts:
     - file: contenidos/unidad1/clase02
     - file: contenidos/unidad1/clase22
     - file: contenidos/unidad1/clase03
-    - file: contenidos/unidad1/clase0011
+    - file: contenidos/unidad1/clase011
+    - file: contenidos/unidad1/clase04
+    - file: contenidos/unidad1/clase05
+    - file: contenidos/unidad1/clase022_pure_tone_1
+    - file: contenidos/unidad1/clase022_audio_real
